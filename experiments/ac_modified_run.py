@@ -86,6 +86,17 @@ def main():
     # Train
     # -------------------------
     model.train(nIter=51)
+    # Compute prediction
+    params = model.params
+    u_pred = model.u_pred_fn(params, t_star, x_star)
+
+    # Save results
+    np.save("results/loss_log.npy", model.loss_log)
+    np.save("results/loss_ics_log.npy", model.loss_ics_log)
+    np.save("results/loss_res_log.npy", model.loss_res_log)
+    np.save("results/error_data.npy", model.error_data)
+    np.save("results/u_pred.npy", u_pred)
+    # np.save("results/beta_list.npy", model.beta_log)
 
 
 if __name__ == "__main__":

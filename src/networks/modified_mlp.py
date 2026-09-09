@@ -1,7 +1,8 @@
 import jax
 import jax.numpy as np
-from jax import random, tanh
-def modified_MLP(layers, L=1.0, M=1, activation=tanh):
+from jax import random
+
+def modified_MLP(layers, L=1.0, M=1, activation=np.tanh):
   def xavier_init(key, d_in, d_out):
       glorot_stddev = 1. / np.sqrt((d_in + d_out) / 2.)
       W = glorot_stddev * random.normal(key, (d_in, d_out))
